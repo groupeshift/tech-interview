@@ -1,151 +1,163 @@
 # Introduction
 
-Welcome to the Groupe Shift Technical Interview.
+Bienvenue à l'entrevue technique de Groupe Shift.
 
-This document will guide you through the technical interview's questions. The goal of this interview is to evaluate your technical skills and your ability to solve different problems that we usually solve in our day to day work. Keep in mind that resolving all problems isn't required and you should aim at quality over quantity. 
+Ce document vous guidera à travers les questions de l'entrevue technique. Le but de cet entretien est d'évaluer vos compétences techniques et votre capacité à résoudre différents problèmes que nous résolvons habituellement dans notre travail quotidien. Gardez à l’esprit qu’il n’est pas nécessaire de résoudre tous les problèmes et que vous devez viser la qualité plutôt que la quantité.
 
-You should also keep in mind that the interviewer is here to help you and you should not hesitate to ask for help if you are stuck. **Each question has a time suggestion**, if you are stuck on a question, you should ask for help to the interviewer. This will ensure you have enough time to complete the rest of the interview.
+Vous devez également garder à l’esprit que l’intervieweur est là pour vous aider et que vous ne devez pas hésiter à demander de l’aide si vous êtes bloqué. **Chaque question est accompagnée d'une suggestion de temps**, si vous êtes bloqué sur une question, vous devez demander de l'aide à l'intervieweur. Cela garantira que vous disposerez de suffisamment de temps pour terminer le reste de l'interview.
 
-Table of contents
-=================
+## Table des matières
+
 1. [Introduction](#introduction)
-2. [Technical Interview](#technical-interview)
-    1. [Step 1 : Get the code trough git clone.](#step-1--get-the-code-trough-git-clone)
-    2. [Step 2 : Build the backend api using dotnet 7.](#step-2--build-the-backend-api-using-dotnet-7)
-    3. [Step 3 : Build the frontend using _______.](#step-3--build-the-frontend-using-)
-    4. [Step 4 : You're ready to start the problem resolving interview.](#step-4--youre-ready-to-start-the-problem-resolving-interview)
-3. [Documentation](#documentation)
-    1. [Backend](#backend)
-    2. [Frontend](#frontend)
+2. [Préparation](#préparation)
+   1. [Étape 1 : Cloner le code à partir du répertoire git.](#étape-1--cloner-le-code-à-partir-du-répertoire-git)
+   2. [Étape 2 : Compiler l'application backend en utilisant dotnet 7.](#étape-2--compiler-lapplication-backend-en-utilisant-dotnet-7)
+   3. [Étape 3 : Installer les dépendances et démarrer le frontend.](#étape-3--installer-les-dépendances-et-démarrer-le-frontend)
+3. [Test technique backend](#test-technique-backend)
+   1. [🐞 Bogues backend à corriger](#🐞-bogues-backend-à-corriger)
+      1. [Bogue 1 : La liste des membres ne retourne pas l'ensemble des membres.](#bogue-1--la-liste-des-membres-ne-retourne-pas-lensemble-des-membres)
+      2. [Bogue 2 : L'application plante lorsque j'essaie de supprimer un livre.](#bogue-2--lapplication-plante-lorsque-jessaie-de-supprimer-un-livre)
+   2. [🥳 Fonctionnalités backend à implémenter](#🥳-fonctionnalités-backend-à-implémenter)
+      1. [Fonctionnalité 1 : En tant qu'utilisateur, je souhaite que la liste des livres soit triée par titre par ordre alphabétique par défaut.](#fonctionnalité-1--en-tant-quutilisateur-je-souhaite-que-la-liste-des-livres-soit-triée-par-titre-par-ordre-alphabétique-par-défaut)
+      2. [Fonctionnalité 2 : En tant qu'utilisateur, je souhaite que les membres soient uniques en fonction de leurs e-mails.](#fonctionnalité-2--en-tant-quutilisateur-je-souhaite-que-les-membres-soient-uniques-en-fonction-de-leurs-e-mails)
+      3. [Fonctionnalité 3 : En tant qu'utilisateur, je souhaite voir si un livre est disponible ou non.](#fonctionnalité-3--en-tant-quutilisateur-je-souhaite-voir-si-un-livre-est-disponible-ou-non)
+4. [Test technique frontend](#test-technique-frontend)
+   1. [🐞 Bogues frontend à corriger](#🐞-bogues-frontend-à-corriger)
+      1. [Bogue 1 : La liste n'affiche pas de chargement](#bogue-1--la-liste-naffiche-pas-de-chargement)
+      2. [Bogue 2 : Les utilisateurs sont incapable de créer un livre.](#bogue-2--les-utilisateurs-sont-incapable-de-créer-un-livre)
+      3. [Bogue 3 : La sauvegarde est possible même si les données sont invalides.](#bogue-3--la-sauvegarde-est-possible-même-si-les-données-sont-invalides)
+      4. [Bogue 4 : La validation d'identifiant unique ne fonctionne pas.](#bogue-4--la-validation-didentifiant-unique-ne-fonctionne-pas)
+      5. [Bogue 5 : La réactivité du livre est dysfonctionnelle.](#bogue-5--la-réactivité-du-livre-est-dysfonctionnelle)
+   2. [🥳 Fonctionnalités frontend à implémenter](#🥳-fonctionnalités-frontend-à-implémenter)
+      1. [Fonctionnalité 1 : En tant qu'utilisateur, j'aimerais pouvoir supprimer un livre.](#fonctionnalité-1--en-tant-quutilisateur-jaimerais-pouvoir-supprimer-un-livre)
+      2. [Fonctionnalité 2 : En tant qu'utilisateur, j'aimerais pouvoir chercher un livre.](#fonctionnalité-2--en-tant-quutilisateur-jaimerais-pouvoir-chercher-un-livre)
+      3. [Fonctionnalité 3 : En tant qu'utilisateur, j'aimerais pouvoir ordonner les livres.](#fonctionnalité-3--en-tant-quutilisateur-jaimerais-pouvoir-ordonner-les-livres)
 
+# Préparation
 
-# Technical Interview
-## Step 1 : Get the code trough git clone.
+## Étape 1 : Cloner le code à partir du répertoire git.
 
-**Description:** The first step of the technical interview is to get the code from the repository. You should already be on the public repository, you can use the Git Client you want to clone the repository. You can also directly download the source code from the repository.
+**Description :** La première étape de l'entrevue technique consiste à obtenir le code source à partir du répertoir. Vous devriez déjà être sur le répertoire publique, vous pouvez utiliser le client Git de votre choix avec lequel vous souhaitez cloner le répertoire. Vous pouvez également télécharger directement le code source depuis le répertoire.
 
-**Time suggestion:** 10 minutes
+> **🕥 Suggestion de temps :** 10 minutes
 
-## Step 2 : Build the backend api using dotnet 7.
+## Étape 2 : Compiler l'application backend.
 
-**Description:** The first step is to build the backend api using dotnet 7. Using the tool of your choice, you should be able to build the backend api. The backend api is located in the `backend` folder, you can open it using the `tech-interview.sln` file. You should be able to build the solution and run it from there.
+**Description :** Il faut désormais compiler l'API backend à l'aide de dotnet 7. En utilisant l'outil de votre choix, vous devriez pouvoir compiler l'API backend. L'API backend se trouve dans le dossier `backend`, vous pouvez l'ouvrir à l'aide du fichier `tech-interview.sln`. Vous devriez pouvoir compiler la solution et l’exécuter à partir de là.
 
-**Hint:** Running the application should start it on port 5008 on the Swagger UI interface which will allow you to test the api, the url is `http://localhost:5008/swagger/index.html`.
+> **💡 Conseil :** L'exécution de l'application doit la démarrer sur le port 5008 sur l'interface Swagger UI qui vous permettra de tester l'API, l'url est `http://localhost:5008/swagger/index.html`.
 
-**Time suggestion:** 10 minutes
+> **🕥 Suggestion de temps :** 10 minutes
 
-## Step 3 : Build the frontend using _______.
+## Étape 3 : Installer les dépendances et démarrer le frontend.
 
-**Description** The third step is to build the frontend using _______.
+**Description :** La troisième étape consiste à installer les dépendances du frontend à l'aide de `npm i` (Node.js est requis). Vous pouvez ensuite démarrer l'application frontend en utilisant `npm run dev`.
 
-**Time suggestion:** 10 minutes
+> **🕥 Suggestion de temps :** 10 minutes
 
-## Step 4 : You're ready to start the problem resolving interview.
+---
 
-The fourth step is to start the problem resolving interview. You should normally have about **60 to 90 minutes** to resolve the problems. As mentionned in the introduction, you should aim at resolving the ones you understand well and focus on quality over quantity. The different issues and requirements are listed below, they go from the easiest to the hardest.
+C'est parti ! Vous disposez d'environ **60 à 90 minutes** pour résoudre les problèmes. Comme mentionné dans l'introduction, vous devez viser à résoudre ceux que vous comprenez bien et vous concentrer sur la qualité plutôt que sur la quantité. Les différents problèmes et exigences sont répertoriés ci-dessous, ils vont du plus simple au plus difficile.
 
-Good luck!
+Bonne chance ! 🎉
 
-### Bug: The list of members does not return all members.
-**Description:** When a user goes to the members screen or uses the Api, the list of members is not complete. The user should be able to see all members either from the list or trough the Api.
+# Test technique backend
 
-**Time suggestion:** 10 minutes
+Le backend est élaboré à l'aide d'une structure "Clean architecture" très simplifiée. Si vous n'avez jamais travaillé avec le Clean architecture ou que vous avez besoin d'information supplémentaire, utilisez [la documentation suivante](./docs/Backend.md).
 
-### Bug: The application crash when I try to delete a book.
-**Description** When a user goes to the list of book and uses the delete button, the application returns an error. The error seems to come from the backend, but we are not sure. The user should be able to delete a book from the list of books or at least get a proper error message.
+## 🐞 Bogues backend à corriger
 
-**Time suggestion:** 15 minutes
+### Bogue 1 : La liste des membres ne retourne pas l'ensemble des membres.
 
-### Req: As a user, I want the list of books to be sorted by title alphabetically by default.
-**Description:** The user asked us if it would be possible to automatically sort the list of books by title alphabetically. The user would like to have this feature by default, it would help him to find a book faster and it would be more user friendly.
+**Description :** Lorsqu'on utilise l'API la liste des membres n'est pas complète, elle devrait cependant retourner l'ensemble des membres.
 
-**Time suggestion:** 10 minutes
+> **🕥 Suggestion de temps :** 10 minutes
 
-### Req: As a user, I want the members to be unique based on their emails.
-**Description:** The user asked us if it would be possible to ensure that the members are unique based on their emails. This would prevent the user from adding a member with an email that already exists and would prevent issues with the loans.
+### Bogue 2 : L'application plante lorsque j'essaie de supprimer un livre.
 
-**Time suggestion:** 20 minutes
+**Description :** Lorsqu'un utilisateur accède à la liste des livres et utilise le bouton Supprimer, l'application renvoie une erreur. L'erreur semble provenir du backend, mais nous n'en sommes pas sûrs. L'utilisateur devrait pouvoir supprimer un livre de la liste des livres ou au moins recevoir un message d'erreur approprié.
 
-### Req: As a user, I want to see if a book is available or not.
-**Description:** The user asked us if it would be possible to see if a book is available or not. A book is available when there are no loans associated with it. The user would like to see this information in the list of books and in the book details.
+> **🕥 Suggestion de temps :** 15 minutes
 
-**Time suggestion:** 30 minutes
+## 🥳 Fonctionnalités backend à implémenter
 
+### Fonctionnalité 1 : En tant qu'utilisateur, je souhaite que la liste des livres soit triée par titre par ordre alphabétique par défaut.
 
-### Finally
-1. Can you name some improvements that you would like to see in this application?
-1. Can you list some of the issues that you found in this application?
+**Description:** L'utilisateur nous a demandé s'il serait possible de trier automatiquement la liste des livres par titre et par ordre alphabétique. L'utilisateur aimerait avoir cette fonctionnalité par défaut, cela l'aiderait à trouver un livre plus rapidement et ce serait plus convivial.
 
-# Documentation
-## Backend
+> **🕥 Suggestion de temps :** 10 minutes
 
-The backend is subdivided into 4 main parts: Domain, Infrastructure, Application and Api. The Domain contains the database entities (Models). The Infrastructure contains the database and the repositories. The Application contains the services and the logic to interact with the database. The Api contains the controllers and the logic to interact with the user.
+### Fonctionnalité 2 : En tant qu'utilisateur, je souhaite que les membres soient uniques en fonction de leurs e-mails.
 
-> During this interview, you won't have to touch the Infrastructure part and should focus on the Application and Api parts.
+**Description:** L'utilisateur nous a demandé s'il serait possible de garantir que les membres sont uniques en fonction de leurs e-mails. Cela empêcherait l'utilisateur d'ajouter un membre avec une adresse e-mail qui existe déjà et éviterait des problèmes avec les prêts.
 
-Please note that this whole structure is an overly simplified clean architecture one. In a real world application, we would have more layers and more separation of concerns.
+> **🕥 Suggestion de temps :** 20 minutes
 
-## The application
-The application is subdivided into 3 main parts: Books, Members and Loans. Each part contains a command and a models folder. The command folder contains the commands that can be executed on the entity such as retrieve a list, update or create. The models folder contains the dto that are returned by the commands.
+### Fonctionnalité 3 : En tant qu'utilisateur, je souhaite voir si un livre est disponible ou non.
 
-A command consist of an `IRequest` class which contains the request parameters and an `IRequestHandler` class which contains the logic to execute the command.
+**Description:** L'utilisateur nous a demandé s'il serait possible de voir si un livre est disponible ou non. Un livre est disponible lorsqu’aucun prêt n’y est associé. L'utilisateur souhaite voir ces informations dans la liste des livres et dans les détails du livre.
 
-## The Api
-The Api only consists of controllers. Each controller contains the logic to interact with the user and the logic to execute the commands. Each of the endpoints of the controllers are documented using Swagger and can also be found below.
+> **🕥 Suggestion de temps :** 30 minutes
 
-### Endpoints
-#### Books
-<details><summary><code>GET</code><code><b> /api/books</b></code> <code><i> : Return all books.</i></code></summary></details>
-<details><summary><code>POST</code><code><b> /api/books</b></code> <code><i>(Create a new book)</i></code></summary></details>
-<details><summary><code>PUT</code><code><b> /api/books/{id}</b></code> <code><i>(Update a given book)</i></code></summary></details>
-<details><summary><code>DELETE</code><code><b> /api/books/{id}</b></code> <code><i>(Delete a given book)</i></code></summary></details>
+## Questions ouvertes
 
-#### Members
-<details><summary><code>GET</code><code><b> /api/members</b></code> <code><i>(Return all members)</i></code></summary></details>
-<details><summary><code>POST</code><code><b> /api/members</b></code> <code><i>(Adds a new member)</i></code></summary></details>
-<details><summary><code>PUT</code><code><b> /api/members/{id}</b></code> <code><i>(Update a given member)</i></code></summary></details>
+1. Pouvez-vous citer quelques améliorations que vous aimeriez voir dans cette application ?
+1. Pouvez-vous énumérer certains des problèmes que vous avez rencontrés dans cette application ?
 
-#### Loans
-<details><summary><code>GET</code><code><b> /api/loans</b></code> <code><i>(Return all loans)</i></code></summary></details>
-<details><summary><code>POST</code><code><b> /api/loans</b></code> <code><i>(Issue a new loan)</i></code></summary></details>
-<details><summary><code>PUT</code><code><b> /api/loans/{id}</b></code> <code><i>(Update a given loan)</i></code></summary></details>
+# Test technique frontend
 
+Le projet frontend est élaboré à l'aide de [Vue 3](https://vuejs.org/guide/introduction.html), [TailwindCSS](https://tailwindcss.com/docs/installation) et [Pinia](https://pinia.vuejs.org/introduction.html). L'utilisation de Visual Studio Code est suggéré mais n'est pas obligatoire.
 
-## Frontend
-1. Books Screen
-    1. Displays a list of all books with details.
-1. Provides options to add, update or delete a book.
-    1. Members Screen
-    1. Shows all members and their details.
-    1. Provides options to add a new member or update existing member details.
-1. Loans Screen
-1. Displays all loans along with associated book and member details.
-1. Allows issuing a new book to a member and returning a book from a member.
+## 🐞 Bogues frontend à corriger
 
+### Bogue 1 : La liste n'affiche pas de chargement.
 
+**Description :** Lorsque l'utilisateur ouvre la liste des livres, la mention "Chargement..." n'apparait pas alors qu'elle devrait pourtant apparaitre !
 
+> **🕥 Suggestion de temps :** 5 minutes
 
-<details><summary>Api Doc Example</summary>
+### Bogue 2 : Les utilisateurs sont incapable de créer un livre.
 
-##### Parameters
+**Description :** Les utilisateurs sont présentement incapables de créer un livre ! La page de création devrait normalement apparaitre lorsque l'on clique sur le livre avec un "+".
 
-> | name      |  type     | data type               | description                                                           |
-> |-----------|-----------|-------------------------|-----------------------------------------------------------------------|
-> | None      |  required | object (JSON or YAML)   | N/A  |
+> **🕥 Suggestion de temps :** 5 minutes
 
+### Bogue 3 : La sauvegarde est possible même si les données sont invalides.
 
-##### Responses
+**Description :** Malgré que le bouton est grisé, l'utilisateur est en mesure de créer un livre alors qu'il n'est pas valide (`BookCreateView.vue`). Il peut également enregister des modifications sans quelles soient valides (`BookUpdateView.vue`). Il faut empêcher l'utilisateur de soumettre lorsque des données ne sont pas valides.
 
-> | http code     | content-type                      | response                                                            |
-> |---------------|-----------------------------------|---------------------------------------------------------------------|
-> | `201`         | `text/plain;charset=UTF-8`        | `Configuration created successfully`                                |
-> | `400`         | `application/json`                | `{"code":"400","message":"Bad Request"}`                            |
-> | `405`         | `text/html;charset=utf-8`         | None                                                                |
+> **🕥 Suggestion de temps :** 5 minutes
 
-##### Example cURL
+### Bogue 4 : La validation d'identifiant unique ne fonctionne pas.
 
-> ```javascript
->  curl -X POST -H "Content-Type: application/json" --data @post.json http://localhost:8889/
-> ```
+**Description :** Lorsque l'utilisateur charge directement la page de création de livre, sans passer par la liste des livres, l'utilisateur est capable d'entrer un id existant et le bouton s'active malgré tout. Il faut corriger la validation pour empêcher l'utilisation d'identifiant existant dans ce cas.
 
-</details>
+> **💡 Conseil :** Pour reproduire la problématique, il faut charger directement la page http://localhost:5173/book/create. Étrangement, lorsqu'on passe par la liste, la validation fonctionne !
+
+> **🕥 Suggestion de temps :** 5 minutes
+
+### Bogue 5 : La réactivité du livre est dysfonctionnelle.
+
+**Description :** À des fins de déboggage, un `console.log` est présent dans `BookCreateView.vue`. En temps normal, un "log" devrait apparaitre dans la console du navigateur à chaque fois qu'une modification est effectuée sur le livre. Par exemple, entrer le titre "Livre" devrait engendrer l'écriture de 5 lignes dans la console mais ça ne semble pas être le cas. Il faut corriger le problème afin qu'un `console.log` soit effectué à chaque fois qu'une modification est apportée au livre.
+
+> **🕥 Suggestion de temps :** 15 minutes
+
+## 🥳 Fonctionnalités frontend à implémenter
+
+### Fonctionnalité 1 : En tant qu'utilisateur, j'aimerais pouvoir supprimer un livre.
+
+**Description :** Il n'est présentement pas possible de supprimer un livre. Il faut donc implémenter la suppression de livre à même la liste des livres.
+
+> **🕥 Suggestion de temps :** 10 minutes
+
+### Fonctionnalité 2 : En tant qu'utilisateur, j'aimerais pouvoir chercher un livre.
+
+**Description :** Les utilisateurs aimeraient être en mesure d'avoir un champ recherche afin de leur permettre de chercher un livre par son titre ou son auteur.
+
+> **🕥 Suggestion de temps :** 10 minutes
+
+### Fonctionnalité 3 : En tant qu'utilisateur, j'aimerais pouvoir ordonner les livres.
+
+**Description :** Les utilisateurs aimeraient pouvoir ordonner les livres en ordre alphabétique. Ils doivent également être en mesure de mettre les livres en ordre anti-alphabétique.
+
+> **🕥 Suggestion de temps :** 10 minutes
