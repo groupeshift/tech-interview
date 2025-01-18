@@ -30,5 +30,10 @@ public class MemberController
     public bool Post(CreateMemberRequest createMemberRequest) => createMemberRequestHandler.Handle(createMemberRequest).Result;
 
     [HttpPut("{id:int}")]
-    public bool Put(UpdateMemberRequest updateMemberRequest) => updateMemberRequestHandler.Handle(updateMemberRequest).Result;
+    public bool Put(int id, [FromBody] UpdateMemberRequest updateMemberRequest)
+    {
+        updateMemberRequest.Id = id;
+
+        return updateMemberRequestHandler.Handle(updateMemberRequest).Result;
+    }
 }

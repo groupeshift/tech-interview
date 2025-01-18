@@ -25,7 +25,6 @@ public class GetMembersRequestHandler : IRequestHandler<GetMembersRequest, List<
                     PhoneNumber = member.PhoneNumber
                 })
                 .ToListAsync())
-            .Where(member => Regexes.PhoneNumberRegex().IsMatch(member.PhoneNumber))
             .ToList();
     }
 }
